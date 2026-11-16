@@ -53,3 +53,228 @@ p{margin:0 0 1.1rem;max-width:62ch}
 @media(min-width:760px){.grid{columns:3;column-gap:1rem}}
 .ph{break-inside:avoid;margin:0 0 .8rem;position:relative;overflow:hidden;border-radius:3px;background:#0c0b09;border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-size:.9rem;text-align:center;cursor:default}
 @media(min-width:760px){.ph{margin-bottom:1rem}}
+.ph svg{width:34px;height:34px;stroke:var(--gold);fill:none;stroke-width:1.5;margin:0 auto .4rem}
+.ph.has{border:0;cursor:zoom-in;display:block}
+.ph.has img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.ph.has:hover img{transform:scale(1.04)}
+.note{color:var(--muted);font-size:.92rem;margin-top:1rem}
+dialog{border:0;background:rgba(0,0,0,.94);color:var(--ivory);max-width:100vw;max-height:100vh;width:100%;height:100%;padding:1rem;margin:0}
+dialog::backdrop{background:#000}
+dialog img{max-height:88vh;max-width:100%;margin:auto;object-fit:contain}
+dialog button{position:absolute;top:calc(env(safe-area-inset-top,0px) + .8rem);right:1rem;background:none;border:1px solid var(--gold);color:var(--gold-hi);border-radius:999px;padding:.4rem 1rem;font:400 1rem var(--sans);cursor:pointer}
+/* prices */
+#valores{background:var(--bg2);border-block:1px solid var(--line)}
+.prices{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(235px,1fr))}
+.price{position:relative;border:1px solid var(--line);padding:1.6rem;border-radius:4px;display:flex;flex-direction:column}
+.price.top{border-color:var(--gold);background:rgba(217,178,76,.07)}
+.tag{position:absolute;top:-.85rem;right:1rem;background:linear-gradient(100deg,var(--gold-lo),var(--gold-hi));color:#1a1405;font:500 .85rem var(--sans);padding:.2rem .9rem;border-radius:999px}
+.info{display:grid;gap:1.4rem;margin-top:2.4rem}
+@media(min-width:760px){.info{grid-template-columns:repeat(3,1fr)}}
+.info div{border-top:1px solid var(--line);padding-top:1rem}
+.info h3{color:var(--gold-hi);font-size:1.35rem}
+.info p{color:var(--muted);font-size:1rem;margin:0}
+.price .v{font:600 2rem var(--serif);margin:.4rem 0 1rem}
+.price p{color:var(--muted);font-size:.98rem;flex:1}
+/* agenda */
+.agenda{display:grid;gap:2.5rem}
+@media(min-width:860px){.agenda{grid-template-columns:1fr 1fr;align-items:start}}
+.cal{border:1px solid var(--line);border-radius:4px;padding:1.2rem;max-width:420px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem}
+.cal-head strong{font:600 1.35rem var(--serif);text-transform:capitalize}
+.cal-head button{background:none;border:1px solid var(--line);color:var(--gold-hi);width:2.4rem;height:2.4rem;border-radius:50%;font-size:1.1rem;cursor:pointer}
+.dows,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.dows span{font-size:.8rem;color:var(--muted);padding:.2rem 0}
+.days button{aspect-ratio:1;border:1px solid transparent;background:none;color:var(--ivory);border-radius:50%;font:400 .98rem var(--sans);cursor:pointer}
+.days button:hover:not(:disabled){border-color:var(--gold)}
+.days button:disabled{color:#4d493f;cursor:not-allowed;text-decoration:line-through}
+.days button.sel{background:var(--gold);color:#1a1405;border-color:var(--gold)}
+.legend{font-size:.85rem;color:var(--muted);margin-top:.8rem}
+#pick{min-height:3.4rem;color:var(--gold-hi);font:italic 500 1.3rem/1.3 var(--serif)}
+/* footer + floating */
+footer{text-align:center;padding:3rem 1.4rem 7rem;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+footer .slogan{font:italic 500 1.5rem var(--serif);color:var(--ivory)}
+.fab{position:fixed;right:max(1rem,env(safe-area-inset-right,0px));bottom:calc(1rem + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:.7rem;z-index:30}
+.fab a{width:3.4rem;height:3.4rem;border-radius:50%;display:grid;place-items:center;background:#0a0a0a;border:1.5px solid var(--gold);box-shadow:0 4px 18px rgba(0,0,0,.7)}
+.fab a.wa{background:linear-gradient(135deg,var(--gold-lo),var(--gold-hi));border-color:transparent}
+.fab svg{width:1.6rem;height:1.6rem;fill:var(--gold-hi)}
+.fab a.wa svg{fill:#1a1405}
+.fab a:hover{filter:brightness(1.2)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav aria-label="Seções"><a href="#sobre">Sobre</a><a href="#galeria">Galeria</a><a href="#valores">Valores</a><a href="#agenda">Agenda</a></nav>
+
+<section id="inicio">
+ <div>
+  <img class="logo" src="logo.jpg" onerror="this.replaceWith(Object.assign(document.createElement('h1'),{textContent:'DM Fotografias',className:'gold-text logo',style:'font:italic 500 3rem var(--serif);text-align:center'}))" alt="DM Fotografias — Mais que fotos, são memórias">
+  <div class="hero-cta">
+   <a class="btn btn-solid" href="#agenda">Agendar meu ensaio</a>
+   <a class="btn btn-line" href="#galeria">Ver trabalhos</a>
+  </div>
+ </div>
+</section>
+
+<section id="sobre"><div class="wrap">
+ <div class="about">
+  <div>
+   <h2 class="gold-text">Quem é a DM Fotografias?</h2>
+   <p>A DM Fotografias é muito mais que uma simples foto. É um olhar verdadeiro carregado de sentimentos.</p>
+   <p>Sou uma fotógrafa apaixonada por guardar o que o tempo não pode levar: o abraço de mãe, o sorriso de família reunida, o sim dos noivos, o enfim casados, a chegada de um novo ciclo, a essência de cada história.</p>
+   <p>Aqui em Vila Ligação, Dom Eliseu e região, registro com amor, simplicidade e verdade, cada cliente que confia seu momento a mim.</p>
+   <div class="sig">D.M. são as minhas iniciais, mas o significado vai além:<br><b>D</b> de Deus, que me deu esse dom.<br><b>M</b> de Memória, que é o que eu entrego pra você.</div>
+  </div>
+  <div>
+   <h2 class="gold-text">Como nasceu a DM Fotografias?</h2>
+   <p>Nasceu de um jeito simples, como as coisas mais bonitas nascem.</p>
+   <p>Eu, Daniely, sempre gostei de fotos, e tudo eu gosto de registrar. Mas eu não tinha um celular com uma câmera boa para fazer isso, então decidi orar a Deus pedindo um celular bom com uma câmera de qualidade. Em 2024, Deus, através da vida do meu esposo, me deu meu primeiro celular com uma câmera boa, e de lá pra cá passei a me interessar ainda mais por este ramo. Comecei fotografando família, amigos, casamentos de amigos, somente com a câmera simples do meu celular, e sempre havia alguém que me falava que eu levava jeito e que deveria investir.</p>
+   <p>Passei a perceber que as pessoas ficavam satisfeitas e felizes quando viam as fotos. Não eram somente algumas fotos. Era elas se reconhecendo. Era amor guardado.</p>
+   <p>Foi aí que entendi: Deus não me deu apenas um celular com uma câmera “melhorzinha”, me deu uma missão. A missão de parar o tempo por um segundo e transformar um instante comum em uma lembrança eterna. Com muita dedicação, trabalho e respeito por cada cliente, a DM Fotografias nasceu profissionalmente.</p>
+  </div>
+ </div>
+ <h2 class="gold-text" style="margin-top:4rem">Qual o objetivo da DM Fotografias?</h2>
+ <p>Meu objetivo não é fazer fotos perfeitas. É fazer fotos verdadeiras. Meus 3 pilares são:</p>
+ <div class="pillars">
+  <div class="pillar"><h3>Leveza</h3><p>Que você se sinta à vontade no ensaio, sem pose forçada, sem pressão. Rir de verdade.</p></div>
+  <div class="pillar"><h3>Respeito</h3><p>Respeito sua história, seu jeito, seu tempo, sua família. Cada ensaio é único.</p></div>
+  <div class="pillar"><h3>Essência</h3><p>Eu não quero que você pareça outra pessoa na foto. Quero que você se veja. Linda(o) do jeito que você é.</p></div>
+ </div>
+ <p class="closing gold-text">Que daqui a 20 anos, você olhe para uma foto minha e sinta de novo o amor daquele dia.</p>
+</div></section>
+
+<section id="galeria"><div class="wrap">
+ <h2 class="gold-text">Galeria</h2>
+ <div class="filters" id="filters" role="group" aria-label="Filtrar por tipo de ensaio"></div>
+ <div class="grid" id="grid"></div>
+ <p class="note" id="galnote"></p>
+</div></section>
+
+<section id="valores"><div class="wrap">
+ <h2 class="gold-text">Valores</h2>
+ <p>O valor depende da quantidade de fotos do pacote, não do tipo de ensaio ou evento.</p>
+ <div class="prices" id="prices"></div>
+ <div class="info">
+  <div><h3>Extras</h3><p>Foto extra: R$ 8,00 cada.<br>Deslocamento: consultar.</p></div>
+  <div><h3>Pagamento</h3><p>Pix e à vista.<br>50% na reserva da data.</p></div>
+  <div><h3>Onde fotografo</h3><p>Não tenho estúdio. Os ensaios acontecem em locais externos, combinados com você.</p></div>
+ </div>
+</div></section>
+
+<section id="agenda"><div class="wrap">
+ <h2 class="gold-text">Agenda</h2>
+ <div class="agenda">
+  <div>
+   <p>Escolha o dia que você quer e eu confirmo o horário com você pelo WhatsApp.</p>
+   <div id="pick" aria-live="polite">Toque em uma data disponível.</div>
+   <a class="btn btn-solid" id="schedBtn" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+  </div>
+  <div class="cal">
+   <div class="cal-head"><button id="prev" aria-label="Mês anterior">‹</button><strong id="mlabel"></strong><button id="next" aria-label="Próximo mês">›</button></div>
+   <div class="dows"><span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span></div>
+   <div class="days" id="days"></div>
+   <div class="legend">Datas riscadas já estão ocupadas ou passaram.</div>
+  </div>
+ </div>
+</div></section>
+
+<footer>
+ <div class="slogan">Mais que fotos, são memórias</div>
+ <p style="margin:.6rem auto">DM Fotografias · Vila Ligação, Dom Eliseu e região<br>94 99218-7081<br>@foto_grafiasdm</p>
+</footer>
+
+<div class="fab">
+ <a href="#" id="fabIg" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm5.2-3.2a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg></a>
+ <a href="tel:+5594992187081" aria-label="Ligar"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1Z"/></svg></a>
+ <a class="wa" href="#" id="fabWa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200Zm4.500-6.100c-.25-.12-1.460-.72-1.690-.8s-.39-.12-.55.12-.63.8-.77.96-.28.18-.53.06a6.700 6.700 0 0 1-3.300-2.900c-.25-.43.25-.4.720-1.340a.45.45 0 0 0 0-.43c-.06-.12-.55-1.320-.75-1.800s-.4-.4-.55-.41h-.47a.9.9 0 0 0-.65.3 2.700 2.700 0 0 0-.85 2 4.700 4.700 0 0 0 1 2.500 10.700 10.700 0 0 0 4.100 3.600c1.500.65 2.100.7 2.800.6a2.300 2.300 0 0 0 1.500-1.100 1.900 1.900 0 0 0 .13-1.100c-.06-.1-.22-.16-.47-.28Z"/></svg></a>
+</div>
+
+<dialog id="lb"><button id="lbx">Fechar</button><img id="lbimg" alt=""></dialog>
+
+<script>
+// @ts-nocheck
+/* ====== CONFIGURAÇÃO — edite aqui ====== */
+const PHONE="5594992187081";
+const INSTAGRAM="https://instagram.com/foto_grafiasdm";
+const BOOKED=[];               // datas ocupadas, ex.: ["2026-12-20","2026-12-21"]
+const PHOTOS=[
+ {src:"ensaio-01.jpg",cat:"Ensaios",r:"830/1100"},
+ {src:"aniversario-01.jpg",cat:"Aniversário",r:"817/1100"},
+ {src:"casamento-01.jpg",cat:"Casamento",r:"825/1100"},
+ {src:"ensaio-02.jpg",cat:"Ensaios",r:"835/1100"},
+ {src:"aniversario-02.jpg",cat:"Aniversário",r:"830/1100"},
+ {src:"casamento-02.jpg",cat:"Casamento",r:"596/1100"},
+ {src:"ensaio-03.jpg",cat:"Ensaios",r:"908/1100"},
+ {src:"aniversario-03.jpg",cat:"Aniversário",r:"830/1100"},
+ {src:"casamento-03.jpg",cat:"Casamento",r:"825/1100"},
+ {src:"ensaio-04.jpg",cat:"Ensaios",r:"830/1100"},
+ {src:"casamento-04.jpg",cat:"Casamento",r:"825/1100"},
+ {src:"ensaio-05.jpg",cat:"Ensaios",r:"830/1100"},
+ {src:"casamento-05.jpg",cat:"Casamento",r:"838/1100"},
+ {src:"casamento-06.jpg",cat:"Casamento",r:"825/1100"},
+ {src:"casamento-07.jpg",cat:"Casamento",r:"825/1100"}
+];
+const PRICES=[
+ {name:"Pacote Essência 10",price:"R$ 80,00",desc:"10 fotos editadas · 1h de ensaio · Entrega digital"},
+ {name:"Pacote Leveza 15",price:"R$ 120,00",desc:"15 fotos editadas · 1h de ensaio · Entrega digital"},
+ {name:"Pacote Respeito 20",price:"R$ 190,00",desc:"20 fotos editadas · 1h30 de ensaio · 2 trocas de roupa · Entrega digital",tag:"Mais querido"},
+ {name:"Pacote Essência Completa 30",price:"R$ 290,00",desc:"30 fotos editadas · 2h de ensaio · 3 trocas de roupa · Entrega digital"}
+];
+/* ======================================= */
+const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
+const hello="Olá, Daniely! Vim pelo site da DM Fotografias e gostaria de agendar um ensaio.";
+document.getElementById("fabWa").href=wa(hello);
+document.getElementById("schedBtn").href=wa(hello);
+const ig=document.getElementById("fabIg");
+if(INSTAGRAM)ig.href=INSTAGRAM;else ig.style.display="none";
+
+/* galeria */
+const cats=["Todas",...new Set(PHOTOS.map(p=>p.cat))];
+const fEl=document.getElementById("filters"),gEl=document.getElementById("grid");
+let cur="Todas";
+const cam='<svg viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3v11H4Z"/><circle cx="12" cy="13.500" r="3.500"/></svg>';
+function drawGal(){
+ gEl.innerHTML="";
+ PHOTOS.filter(p=>cur==="Todas"||p.cat===cur).forEach(p=>{
+  const f=document.createElement("figure");f.className="ph"+(p.src?" has":"");f.style.aspectRatio=p.r;
+  if(p.src){const i=new Image();i.onerror=()=>{if(!i.dataset.t){i.dataset.t=1;i.src=p.src.split("/").pop();return}f.className="ph";f.onclick=null;f.removeAttribute("tabindex");f.innerHTML=`<div>${cam}${p.cat}<br>sua foto aqui</div>`};i.src=p.src;i.alt="Foto de "+p.cat.toLowerCase()+" por DM Fotografias";i.loading="lazy";f.appendChild(i);f.tabIndex=0;
+   const open=()=>{lbimg.src=p.src;lb.showModal()};f.onclick=open;f.onkeydown=e=>{if(e.key==="Enter")open()}}
+  else f.innerHTML=`<div>${cam}${p.cat}<br>sua foto aqui</div>`;
+  gEl.appendChild(f)});
+ document.getElementById("galnote").textContent=PHOTOS.some(p=>p.src)?"":"Os espaços acima serão preenchidos com as fotos do portfólio.";
+}
+cats.forEach(c=>{const b=document.createElement("button");b.textContent=c;b.setAttribute("aria-pressed",c===cur);
+ b.onclick=()=>{cur=c;[...fEl.children].forEach(x=>x.setAttribute("aria-pressed",x===b));drawGal()};fEl.appendChild(b)});
+drawGal();
+const lb=document.getElementById("lb"),lbimg=document.getElementById("lbimg");
+document.getElementById("lbx").onclick=()=>lb.close();lb.onclick=e=>{if(e.target===lb)lb.close()};
+
+/* valores */
+document.getElementById("prices").innerHTML=PRICES.map(p=>`<div class="price${p.tag?" top":""}">${p.tag?`<span class="tag">${p.tag}</span>`:""}<h3>${p.name}</h3><div class="v gold-text">${p.price}</div><p>${p.desc.split(" · ").join("<br>")}</p><a class="btn btn-line" target="_blank" rel="noopener" href="${wa("Olá, Daniely! Tenho interesse no "+p.name+". Podemos conversar?")}">Quero este pacote</a></div>`).join("");
+
+/* agenda */
+const today=new Date();today.setHours(0,0,0,0);
+let view=new Date(today.getFullYear(),today.getMonth(),1),sel=null;
+const dEl=document.getElementById("days"),pick=document.getElementById("pick"),sb=document.getElementById("schedBtn");
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+function drawCal(){
+ document.getElementById("mlabel").textContent=view.toLocaleDateString("pt-BR",{month:"long",year:"numeric"});
+ dEl.innerHTML="";
+ for(let i=0;i<view.getDay();i++)dEl.appendChild(document.createElement("span"));
+ const n=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+ for(let d=1;d<=n;d++){
+  const dt=new Date(view.getFullYear(),view.getMonth(),d),b=document.createElement("button");
+  b.textContent=d;b.disabled=dt<today||BOOKED.includes(iso(dt));
+  if(sel&&iso(dt)===iso(sel))b.className="sel";
+  b.onclick=()=>{sel=dt;const t=dt.toLocaleDateString("pt-BR",{weekday:"long",day:"numeric",month:"long"});
+   pick.textContent="Você escolheu "+t+".";
+   sb.textContent="Pedir esta data no WhatsApp";
+   sb.href=wa(`Olá, Daniely! Gostaria de agendar um ensaio para ${t}. Você tem horário?`);drawCal()};
+  dEl.appendChild(b)}
+ document.getElementById("prev").disabled=view<=new Date(today.getFullYear(),today.getMonth(),1);
+}
+document.getElementById("prev").onclick=()=>{view.setMonth(view.getMonth()-1);drawCal()};
+document.getElementById("next").onclick=()=>{view.setMonth(view.getMonth()+1);drawCal()};
+drawCal();
+</script>
+</body>
+</html>
